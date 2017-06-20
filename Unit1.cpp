@@ -94,7 +94,8 @@ else{
 if (RadioButton1->Checked == true) {
 
 	Memo1->Lines->Add("Test string:" + Edit1->Text);
-	KeccakUpdate(&st, Edit1->Text.t_str(), Edit1->Text.Length()*8); // <- "bit"!
+	unsigned char *mbc = reinterpret_cast<unsigned char *>(Edit1->Text.w_str());
+	KeccakUpdate(&st, mbc, strlen(mbc)*8); // <- "bit"!
 
 }
 //-----------------------------------

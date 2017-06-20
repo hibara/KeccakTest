@@ -1,9 +1,14 @@
 ﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
 			<ProjectGuid>{8ED99730-6E28-41F1-B5BA-DBCBFB57B426}</ProjectGuid>
-			<ProjectVersion>12.0</ProjectVersion>
+			<ProjectVersion>14.6</ProjectVersion>
 			<MainSource>keccak_test.cpp</MainSource>
 			<Config Condition="'$(Config)'==''">デバッグ</Config>
+			<FrameworkType>VCL</FrameworkType>
+			<Base>True</Base>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Application</AppType>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
 			<Base>true</Base>
@@ -19,16 +24,20 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<VerInfo_Keys>CompanyName=http://hibara.org;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=Copyright(C) 2012 M.Hibara, All rights reserved.;LegalTrademarks=;OriginalFilename=keccak_test.exe;ProductName=Keccak Test;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Locale>1041</VerInfo_Locale>
+			<DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
 			<LinkPackageStatics>rtl.lib;vcl.lib</LinkPackageStatics>
 			<Multithreaded>true</Multithreaded>
 			<ProjectType>CppVCLApplication</ProjectType>
-			<PackageImports>vcl.bpi;rtl.bpi;bcbie.bpi;vclx.bpi;vclactnband.bpi;xmlrtl.bpi;bcbsmp.bpi;vclimg.bpi;dbrtl.bpi;vcldb.bpi;vcldbx.bpi;bdertl.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_100_140.bpi;Intraweb_100_140.bpi;vclie.bpi;inetdb.bpi;webdsnap.bpi;websnap.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;vclribbon.bpi;DbxCommonDriver.bpi;DbxClientDriver.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;dbexpress.bpi;dbxcds.bpi</PackageImports>
+			<PackageImports>vcl.bpi;rtl.bpi;bcbie.bpi;vclx.bpi;vclactnband.bpi;xmlrtl.bpi;bcbsmp.bpi;vclimg.bpi;dbrtl.bpi;vcldb.bpi;vcldbx.bpi;bdertl.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_100_140.bpi;Intraweb_100_140.bpi;vclie.bpi;inetdb.bpi;webdsnap.bpi;websnap.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;vclribbon.bpi;DbxCommonDriver.bpi;DbxClientDriver.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;dbexpress.bpi;dbxcds.bpi;$(PackageImports).bpi</PackageImports>
 			<OutputExt>exe</OutputExt>
 			<AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
 			<BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
 			<FinalOutputDir>.</FinalOutputDir>
 			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
-			<IncludePath>$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;$(CG_BOOST_ROOT);.;$(IncludePath)</IncludePath>
+			<IncludePath>$(BDS)\include;$(BDS)\include\vcl;$(CG_BOOST_ROOT);.;$(IncludePath)</IncludePath>
 			<ILINK_LibraryPath>$(BDS)\lib\obj;$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<BCC_wpar>false</BCC_wpar>
 			<BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
@@ -38,7 +47,6 @@
 			<BCC_DisableOptimizations>true</BCC_DisableOptimizations>
 			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
-			<Defines>_DEBUG;$(Defines)</Defines>
 			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
 			<IntermediateOutputDir>Debug</IntermediateOutputDir>
 			<BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
@@ -52,32 +60,11 @@
 			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
-			<Defines>NDEBUG;$(Defines)</Defines>
 			<IntermediateOutputDir>Release</IntermediateOutputDir>
 			<ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
-			<None Include="KeccakF-1600-int-set.h">
-				<BuildOrder>4</BuildOrder>
-			</None>
-			<CppCompile Include="Unit1.cpp">
-				<Form>Form1</Form>
-				<DependentOn>Unit1.h</DependentOn>
-				<BuildOrder>2</BuildOrder>
-			</CppCompile>
-			<None Include="KeccakF-1600-interface.h">
-				<BuildOrder>3</BuildOrder>
-			</None>
-			<None Include="KeccakNISTInterface.h">
-				<BuildOrder>9</BuildOrder>
-			</None>
-			<CppCompile Include="KeccakNISTInterface.c">
-				<BuildOrder>8</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="KeccakF-1600-opt32.c">
-				<BuildOrder>9</BuildOrder>
-			</CppCompile>
 			<None Include="KeccakSponge.h">
 				<BuildOrder>6</BuildOrder>
 			</None>
@@ -87,9 +74,29 @@
 			<CppCompile Include="keccak_test.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="Unit1.cpp">
+				<Form>Form1</Form>
+				<DependentOn>Unit1.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
 			<ResFiles Include="keccak_test.res">
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
+			<None Include="KeccakF-1600-interface.h">
+				<BuildOrder>3</BuildOrder>
+			</None>
+			<None Include="KeccakF-1600-int-set.h">
+				<BuildOrder>4</BuildOrder>
+			</None>
+			<CppCompile Include="KeccakF-1600-opt32.c">
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
+			<None Include="KeccakNISTInterface.h">
+				<BuildOrder>9</BuildOrder>
+			</None>
+			<CppCompile Include="KeccakNISTInterface.c">
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
 			<FormResources Include="Unit1.dfm"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
@@ -135,6 +142,20 @@
 						<VersionInfoKeys Name="ProductName">Keccak Test</VersionInfoKeys>
 						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
+						<VersionInfoKeys Name="CFBundleName"/>
+						<VersionInfoKeys Name="CFBundleDisplayName"/>
+						<VersionInfoKeys Name="UIDeviceFamily"/>
+						<VersionInfoKeys Name="CFBundleIdentifier"/>
+						<VersionInfoKeys Name="CFBundleVersion"/>
+						<VersionInfoKeys Name="CFBundlePackageType"/>
+						<VersionInfoKeys Name="CFBundleSignature"/>
+						<VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+						<VersionInfoKeys Name="UISupportedInterfaceOrientations"/>
+						<VersionInfoKeys Name="CFBundleExecutable"/>
+						<VersionInfoKeys Name="CFBundleResourceSpecification"/>
+						<VersionInfoKeys Name="LSRequiresIPhoneOS"/>
+						<VersionInfoKeys Name="CFBundleInfoDictionaryVersion"/>
+						<VersionInfoKeys Name="CFBundleDevelopmentRegion"/>
 					</VersionInfoKeys>
 					<Debugging>
 						<Debugging Name="DebugSourceDirs"/>
@@ -157,10 +178,8 @@
 						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
 					</Parameters>
 					<Excluded_Packages>
-						<Excluded_Packages Name="$(BDS)\bin\bcboffice2k140.bpl">Embarcadero C++Builder Office 2000 サーバー パッケージ</Excluded_Packages>
-						<Excluded_Packages Name="$(BDS)\bin\bcbofficexp140.bpl">Embarcadero C++Builder Office XP サーバー パッケージ</Excluded_Packages>
-						<Excluded_Packages Name="C:\Program Files (x86)\EldoS\Callback File System\VCL\Units\Delphi14\CBFSD14.BPL">ファイル C:\Program Files (x86)\EldoS\Callback File System\VCL\Units\Delphi14\CBFSD14.BPL が見つかりません。</Excluded_Packages>
-						<Excluded_Packages Name="C:\Program Files (x86)\EldoS\Callback File System\VCL\Units\Builder2010\CBFSB14.BPL">ファイル C:\Program Files (x86)\EldoS\Callback File System\VCL\Units\Builder2010\CBFSB14.BPL が見つかりません。</Excluded_Packages>
+						<Excluded_Packages Name="%BDSBIN%\bcboffice2k180.bpl">Embarcadero C++Builder Office 2000 サーバー パッケージ</Excluded_Packages>
+						<Excluded_Packages Name="%BDSBIN%\bcbofficexp180.bpl">Embarcadero C++Builder Office XP サーバー パッケージ</Excluded_Packages>
 					</Excluded_Packages>
 					<ProjectProperties>
 						<ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
@@ -171,6 +190,10 @@
 						<Source Name="MainSource">keccak_test.cpp</Source>
 					</Source>
 				</CPlusPlusBuilder.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+					<Platform value="Win64">False</Platform>
+				</Platforms>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>

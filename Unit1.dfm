@@ -32,8 +32,6 @@ object Form1: TForm1
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 258
-    ExplicitWidth = 517
     DesignSize = (
       403
       41)

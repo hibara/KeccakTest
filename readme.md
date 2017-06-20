@@ -19,7 +19,7 @@ at the following URL:
 [http://keccak.noekeon.org/files.html](http://keccak.noekeon.org/files.html)
 
 
-![ScreenShot-00](http://hibara.org/img/KeccakTest_ScreenShot_00s.png)
+![ScreenShot-00](https://hibara.org/img/KeccakTest/ScreenShot_00.png)
 
 
 License
