@@ -3,6 +3,7 @@
 
 SHA-3(Keccak) -- cryptographic hash function -- 
 calculation test application program with C++Builder 2010 Project.
+('C++Builder XE4' also operation verification ending.)
 
 When you input string data or drag and drop file onto main form,
 and output Keccak hash data to hex string.
